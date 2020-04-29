@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessService.Data\BusinessService.Data.csproj" />
+    <ProjectReference Include="..\BusinessService.Domain\BusinessService.Domain.csproj" />
+    <ProjectReference Include="..\BusinessService.Services\BusinessService.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>
