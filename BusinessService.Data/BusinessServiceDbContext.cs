@@ -13,5 +13,8 @@ namespace BusinessService.Data
             optionsBuilder.UseSqlServer("Data Source=DNETAZ35;Initial Catalog=SchoolEducationDomain;Integrated Security=true");
         }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<School> Schools { get; set; }
+        public DbSet<Class> classes { get; set; }      
     }
 }

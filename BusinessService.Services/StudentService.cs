@@ -37,6 +37,12 @@ namespace BusinessService.Services
             return studentlist;
         }
 
+        public IEnumerable<Student> GetAllStudents()
+        {
+            var studentlist = sqlStudentRepository.GetAllStudents();
+            return studentlist;
+        }
+
         public Student GetStudent(int Id)
         {
            var Students= sqlStudentRepository.GetStudent(Id);

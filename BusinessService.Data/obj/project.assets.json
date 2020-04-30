@@ -6837,11 +6837,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Project\\SchoolManagementSystem\\BusinessService.Data\\BusinessService.Data.csproj",
+      "projectUniqueName": "C:\\Project\\BusinessService\\BusinessService.Data\\BusinessService.Data.csproj",
       "projectName": "BusinessService.Data",
-      "projectPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Data\\BusinessService.Data.csproj",
+      "projectPath": "C:\\Project\\BusinessService\\BusinessService.Data\\BusinessService.Data.csproj",
       "packagesPath": "C:\\Users\\cognizantdotnet17\\.nuget\\packages\\",
-      "outputPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Data\\obj\\",
+      "outputPath": "C:\\Project\\BusinessService\\BusinessService.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -6861,8 +6861,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Project\\SchoolManagementSystem\\BusinessService.Domain\\BusinessService.Domain.csproj": {
-              "projectPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Domain\\BusinessService.Domain.csproj"
+            "C:\\Project\\BusinessService\\BusinessService.Domain\\BusinessService.Domain.csproj": {
+              "projectPath": "C:\\Project\\BusinessService\\BusinessService.Domain\\BusinessService.Domain.csproj"
             }
           }
         }

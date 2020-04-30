@@ -31,7 +31,12 @@ namespace BusinessService.Api.Controllers
             var studentlist= _studentRepository.GetAllStudent();
             return studentlist;
 
-        } 
+        }
+        public IEnumerable<Student> GetAllStudents()
+        {
+            var studentlist = _studentRepository.GetAllStudents();
+            return studentlist;
+        }
         public HttpResponseMessage Post(Student student)
         {
             try
@@ -54,8 +59,6 @@ namespace BusinessService.Api.Controllers
         {
             _studentRepository.Delete(id);
         }
-
-
 
     }
 }

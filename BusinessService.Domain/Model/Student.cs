@@ -10,6 +10,9 @@ namespace BusinessService.Domain.Model
         public string Name { get; set; }
         public string DOB { get; set; }
         public string Gender { get; set; }
-        
+        public int CourseId { get; set; }
+        public int SchoolId { get; set; }
+        public School school { get; set; }
+        public Course course { get; set; }
     }
 }

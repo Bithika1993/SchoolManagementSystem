@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JS8YAxFZdt9zTlPFUMPOfBOlPxCX6CqsjmHAoXMv1JXxu6oFU0a0bgwSsQsmNbfbtRN9hkLjVvozKs9RhI2/zw==",
+  "dgSpecHash": "YSenHN5F+SV5K1csKDSi/jH2MQ7SEX/7r8bQa8VpBucvUcQ1OxnDm8EYlCL4Xs/zN7zgKhWESYKMrjUiPphXRw==",
   "success": true,
-  "projectFilePath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Domain\\BusinessService.Domain.csproj",
+  "projectFilePath": "C:\\Project\\BusinessService\\BusinessService.Domain\\BusinessService.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

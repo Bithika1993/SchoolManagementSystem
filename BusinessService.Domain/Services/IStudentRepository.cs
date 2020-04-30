@@ -12,5 +12,6 @@ namespace BusinessService.Domain.Services
             Student Update(int id,Student student);
             Student Delete(int Id);
             IEnumerable<Student> GetAllStudent();
+            IEnumerable<Student> GetAllStudents();
     }
 }

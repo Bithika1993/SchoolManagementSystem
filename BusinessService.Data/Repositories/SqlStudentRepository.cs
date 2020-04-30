@@ -1,4 +1,5 @@
 ﻿using BusinessService.Domain.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,39 +9,54 @@ namespace BusinessService.Data.Repositories
 {
     public class SqlStudentRepository
     {
-         BusinessServiceDbContext context= new BusinessServiceDbContext();
-        //public List<Student> studentlist = new List<Student>();
-        //private List<Student> _studentList;
-        //public SqlStudentRepository(BusinessServiceDbContext context)
-        //{
-        //    this.context = context;
-        //}
-        //public SqlStudentRepository()
-        //{
-        //    _studentList = new List<Student>()
-        //    {
-        //        new Student(){Id=1, Name="Bithika" ,DOB="01-01-2019",Gender="F" },
-        //        new Student(){Id=2, Name="Bithika1" ,DOB="01-01-2019",Gender="F" },
-        //        new Student(){Id=3, Name="Bithika" ,DOB="01-01-2019",Gender="F" }
-
-        //    };
-        //}
+         BusinessServiceDbContext context= new BusinessServiceDbContext();        
         public Student GetStudent(int id)
-        {
-            var studentdetails = context.Students.FirstOrDefault(e => e.Id == id);
+        {          
+            //var student = (from s in context.Set<Student>()
+            //               join c in context.Set<Course>()
+            //               on s.CourseId equals c.CourseId
+            //               join school in context.Set<School>()
+            //               on s.SchoolId equals school.Id
+            //               where s.Id == id
+            //               select new { c, s, school }).First();
+            //var studentdetails = student.s;
+            var studentdetails = context.Students.Where(e => e.Id == id)
+                      .Include(c => c.course)
+                      .Include(p => p.school)
+                      .First();
             return studentdetails;
         }
         public IEnumerable<Student> GetAllStudent()
         {
             var studentList = context.Students.ToList();
-            return studentList;
-             
+            return studentList;            
+        }
+        public IEnumerable<Student> GetAllStudents()
+        {         
+            //var student = (from s in context.Set<Student>()
+            //               join c in context.Set<Course>()
+            //               on s.course.CourseId equals c.CourseId
+            //               join school in context.Set<School>()
+            //               on s.school.Id equals school.Id
+            //               select new { c, s, school });
+            var studentDetail = context.Students
+                      .Include(c => c.course)
+                      .Include(p => p.school)
+                      .ToList();                      
+            return studentDetail;
         }
         public Student Add(Student student)
         {
-            context.Students.Add(student);
-            context.SaveChanges();
-            return null;
+            try
+            {
+                context.Students.Add(student);
+                context.SaveChanges();
+                return null;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
         public Student update(int id,Student student)
         {

@@ -8069,11 +8069,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Project\\SchoolManagementSystem\\BusinessService.Tests\\BusinessService.Tests.csproj",
+      "projectUniqueName": "C:\\Project\\BusinessService\\BusinessService.Tests\\BusinessService.Tests.csproj",
       "projectName": "BusinessService.Tests",
-      "projectPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Tests\\BusinessService.Tests.csproj",
+      "projectPath": "C:\\Project\\BusinessService\\BusinessService.Tests\\BusinessService.Tests.csproj",
       "packagesPath": "C:\\Users\\cognizantdotnet17\\.nuget\\packages\\",
-      "outputPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Tests\\obj\\",
+      "outputPath": "C:\\Project\\BusinessService\\BusinessService.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -8093,17 +8093,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Project\\SchoolManagementSystem\\BusinessService.Api\\BusinessService.Api.csproj": {
-              "projectPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Api\\BusinessService.Api.csproj"
+            "C:\\Project\\BusinessService\\BusinessService.Api\\BusinessService.Api.csproj": {
+              "projectPath": "C:\\Project\\BusinessService\\BusinessService.Api\\BusinessService.Api.csproj"
             },
-            "C:\\Project\\SchoolManagementSystem\\BusinessService.Data\\BusinessService.Data.csproj": {
-              "projectPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Data\\BusinessService.Data.csproj"
+            "C:\\Project\\BusinessService\\BusinessService.Data\\BusinessService.Data.csproj": {
+              "projectPath": "C:\\Project\\BusinessService\\BusinessService.Data\\BusinessService.Data.csproj"
             },
-            "C:\\Project\\SchoolManagementSystem\\BusinessService.Domain\\BusinessService.Domain.csproj": {
-              "projectPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Domain\\BusinessService.Domain.csproj"
+            "C:\\Project\\BusinessService\\BusinessService.Domain\\BusinessService.Domain.csproj": {
+              "projectPath": "C:\\Project\\BusinessService\\BusinessService.Domain\\BusinessService.Domain.csproj"
             },
-            "C:\\Project\\SchoolManagementSystem\\BusinessService.Services\\BusinessService.Services.csproj": {
-              "projectPath": "C:\\Project\\SchoolManagementSystem\\BusinessService.Services\\BusinessService.Services.csproj"
+            "C:\\Project\\BusinessService\\BusinessService.Services\\BusinessService.Services.csproj": {
+              "projectPath": "C:\\Project\\BusinessService\\BusinessService.Services\\BusinessService.Services.csproj"
             }
           }
         }
