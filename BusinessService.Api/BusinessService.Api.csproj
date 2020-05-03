@@ -13,6 +13,4 @@
     <ProjectReference Include="..\BusinessService.Domain\BusinessService.Domain.csproj" />
     <ProjectReference Include="..\BusinessService.Services\BusinessService.Services.csproj" />
   </ItemGroup>
-
-
 </Project>

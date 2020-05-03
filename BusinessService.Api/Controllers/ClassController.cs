@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessService.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ClassController : ControllerBase
     {
         private readonly IClassRepository _classRepository;
@@ -19,39 +19,103 @@ namespace BusinessService.Api.Controllers
         {
             _classRepository = classRepository;
         }
-        public Class Get(int id)
-        {
-            var classes = _classRepository.Getclass(id);
-            return classes;
-
-        }
-        public IEnumerable<Class> GetAllClasst()
-        {
-            var classtlist = _classRepository.GetAllClass();
-            return classtlist;
-
-        }
-        public HttpResponseMessage Post(Class cls)
+        [HttpGet]
+        [Route("GetClass/{id}")]
+        public IActionResult GetClass(int id)
         {
             try
             {
-                _classRepository.Add(cls);
-                return null;
+                var classes = _classRepository.Getclass(id);
+
+                if (classes != null)
+                {
+                    return Ok(classes);
+                }
+                else
+                {
+                    return NotFound(" Class Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpGet]
+        [Route("getAllClass")]
+        public IActionResult GetAllClass()
+        {
+            try
+            {
+                var classtlist = _classRepository.GetAllClass();
+
+                if (classtlist.Count() > 0)
+                {
+                    return Ok(classtlist);
+                }
+                else
+                {
+                    return NotFound(" ClassList Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpPost]
+        [Route("addClass")]
+        public IActionResult AddClass([FromBody]Class cls)
+        {
+            try
+            {
+               var result= _classRepository.Add(cls);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
 
             }
             catch (Exception ex)
             {
-                return null;
+                return BadRequest(ex.Message);
             }
         }
-        public HttpResponseMessage Put(int id, Class cls)
-        {
-            _classRepository.Update(id, cls);
-            return null;
+        [HttpPut]
+        [Route("updateClass/{id}")]
+        public IActionResult UpdateClass(int id, [FromBody]Class cls)
+        { 
+            try
+            { 
+                var result=_classRepository.Update(id, cls);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-        public void Delete(int id)
-        {
-            _classRepository.Delete(id);
+        [HttpDelete]
+        [Route("deleteClass/{id}")]
+        public IActionResult DeleteClass(int id)
+        {          
+            try
+            {
+               var result= _classRepository.Delete(id);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

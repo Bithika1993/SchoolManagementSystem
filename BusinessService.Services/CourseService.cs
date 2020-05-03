@@ -9,15 +9,22 @@ namespace BusinessService.Services
 {
     public class CourseService : ICourseRepository
     {
-         SqlCourseRepository sqlCourseRepository = new SqlCourseRepository();
+        SqlCourseRepository sqlCourseRepository = new SqlCourseRepository();
         public Course Add(Course course)
         {
-            if (course != null)
+            try
             {
-                sqlCourseRepository.Add(course);
-                return null;
+                if (course != null)
+                {
+                    var result = sqlCourseRepository.Add(course);
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch(Exception ex)
             {
                 return null;
             }
@@ -25,12 +32,12 @@ namespace BusinessService.Services
 
         public Course Delete(int Id)
         {
-            if (Id != 0)
-            {
+            try
+            { 
                 var course = sqlCourseRepository.Delete(Id);
                 return course;
             }
-            else
+            catch(Exception ex)
             {
                 return null;
             }
@@ -39,20 +46,42 @@ namespace BusinessService.Services
 
         public IEnumerable<Course> GetAllCourse()
         {
-            var course = sqlCourseRepository.GetAllCourse();
-            return course;
+            try
+            {
+                var course = sqlCourseRepository.GetAllCourse();
+                return course;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public Course GetCourse(int Id)
         {
-            var coursedetail = sqlCourseRepository.GetCourse(Id);
-            return coursedetail;
+            try
+            {
+                var coursedetail = sqlCourseRepository.GetCourse(Id);
+                return coursedetail;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public Course Update(int id, Course course)
         {
-            var courses = sqlCourseRepository.update(id, course);
-            return courses;
+            try
+            {
+                var courses = sqlCourseRepository.update(id, course);
+                return courses;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            
         }
     }
 }

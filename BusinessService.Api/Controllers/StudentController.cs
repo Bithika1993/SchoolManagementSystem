@@ -11,53 +11,136 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessService.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class StudentController : ControllerBase
     {
-       private readonly IStudentRepository _studentRepository;
+        private readonly IStudentRepository _studentRepository;
         public StudentController(IStudentRepository studentRepository)
         {
             _studentRepository = studentRepository;
         }
-        public Student Get(int id)
-        {
-           var student= _studentRepository.GetStudent(id);
-            return student;
-
-        }
-        public IEnumerable<Student> GetAllStudent()
-        {
-            var studentlist= _studentRepository.GetAllStudent();
-            return studentlist;
-
-        }
-        public IEnumerable<Student> GetAllStudents()
-        {
-            var studentlist = _studentRepository.GetAllStudents();
-            return studentlist;
-        }
-        public HttpResponseMessage Post(Student student)
+        [HttpGet]
+        [Route("GetStudent/{id}")]
+        public IActionResult GetStudent(int id)
         {
             try
             {
-               _studentRepository.Add(student);
-                return null;
-               
+                var student = _studentRepository.GetStudent(id);
+
+                if (student != null)
+                {
+                    return Ok(student);
+                }
+                else
+                {
+                    return NotFound(" Student Not Found");
+                }
             }
             catch (Exception ex)
             {
-                return null;
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpGet]
+        [Route("getAllStudent")]
+        public IActionResult GetAllStudent()
+        {
+            try
+            {
+                var studentlist = _studentRepository.GetAllStudent();
+
+                if (studentlist.Count() > 0)
+                {
+                    return Ok(studentlist);
+                }
+                else
+                {
+                    return NotFound(" StudentList Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpGet]
+        [Route("getAllStudents")]
+        public IActionResult GetAllStudents()
+        {
+            try
+            {
+                var studentlist = _studentRepository.GetAllStudents();
+
+                if (studentlist.Count() > 0)
+                {
+                    return Ok(studentlist);
+                }
+                else
+                {
+                    return NotFound(" StudentList Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
-        public HttpResponseMessage Put(int id,Student student)
+        [HttpPost]
+        [Route("addStudent")]
+        public IActionResult AddStudent([FromBody]Student student)
         {
-            _studentRepository.Update(id,student);
-            return null;           
+            try
+            {
+               var result=_studentRepository.Add(student);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPut]
+        [Route("updateStudent/{id}")]
+        public IActionResult UpdateStudent(int id, [FromBody]Student student)
+        {          
+            try
+            {
+               var result= _studentRepository.Update(id, student);
+                if(result!=null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         } 
-        public void Delete(int id)
-        {
-            _studentRepository.Delete(id);
+        [HttpDelete]
+        [Route("deleteStudent/{id}")]
+        public IActionResult DeleteStudent(int id)
+        {           
+            try
+            {
+               var result= _studentRepository.Delete(id);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
     }

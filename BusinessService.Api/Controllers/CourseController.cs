@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessService.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class CourseController : ControllerBase
     {
         private readonly ICourseRepository _courseRepository;
@@ -19,39 +19,99 @@ namespace BusinessService.Api.Controllers
         {
             _courseRepository = courseRepository;
         }
-        public Course Get(int id)
-        {
-            var course = _courseRepository.GetCourse(id);
-            return course;
-
-        }
-        public IEnumerable<Course> GetAllStudent()
-        {
-            var coursetlist = _courseRepository.GetAllCourse();
-            return coursetlist;
-
-        }
-        public HttpResponseMessage Post(Course course)
+        [HttpGet]
+        [Route("GetCourse/{id}")]
+        public IActionResult GetCourse(int id)
         {
             try
             {
-                _courseRepository.Add(course);
-                return null;
+                var course = _courseRepository.GetCourse(id);
 
+                if (course != null)
+                {
+                    return Ok(course);
+                }
+                else
+                {
+                    return NotFound(" Course Not Found");
+                }
             }
             catch (Exception ex)
             {
-                return null;
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpGet]
+        [Route("getAllCourse")]
+        public IActionResult GetAllCourse()
+        {
+            try
+            {
+                var coursetlist = _courseRepository.GetAllCourse();
+
+                if (coursetlist.Count() > 0)
+                {
+                    return Ok(coursetlist);
+                }
+                else
+                {
+                    return NotFound(" CourseList Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpPost]
+        [Route("addCourse")]
+        public IActionResult AddCourse([FromBody]Course course)
+        {
+            try
+            {
+               var result= _courseRepository.Add(course);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
             }
         }
-        public HttpResponseMessage Put(int id, Course course)
+        [HttpPut]
+        [Route("updateCourse/{id}")]
+        public IActionResult UpdateCourse(int id, [FromBody]Course course)
         {
-            _courseRepository.Update(id, course);
-            return null;
+            try
+            {
+                var result=_courseRepository.Update(id, course);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("deleteCourse/{id}")]
+        public IActionResult DeleteCourse(int id)
         {
-            _courseRepository.Delete(id);
+            try
+            {
+                _courseRepository.Delete(id);
+                return Ok("Success");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
     }

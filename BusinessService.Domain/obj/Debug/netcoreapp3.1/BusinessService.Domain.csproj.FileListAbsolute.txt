@@ -24,3 +24,15 @@ C:\Project\BusinessService\BusinessService.Domain\obj\Debug\netcoreapp3.1\Busine
 C:\Project\BusinessService\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.dll
 C:\Project\BusinessService\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.pdb
 C:\Project\BusinessService\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.genruntimeconfig.cache
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.exe
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.deps.json
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.runtimeconfig.json
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.runtimeconfig.dev.json
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.dll
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.pdb
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.csproj.CoreCompileInputs.cache
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.AssemblyInfoInputs.cache
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.AssemblyInfo.cs
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.dll
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.pdb
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.genruntimeconfig.cache

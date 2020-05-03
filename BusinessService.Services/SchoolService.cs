@@ -12,12 +12,19 @@ namespace BusinessService.Services
         SqlSchoolRepository sqlSchoolRepository = new SqlSchoolRepository();
         public School Add(School school)
         {
-            if (school != null)
+            try
             {
-                sqlSchoolRepository.Add(school);
-                return null;
+                if (school != null)
+                {
+                    var result = sqlSchoolRepository.Add(school);
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch(Exception ex)
             {
                 return null;
             }
@@ -25,26 +32,54 @@ namespace BusinessService.Services
 
         public School Delete(int Id)
         {
-            var school = sqlSchoolRepository.Delete(Id);
-            return school;
+            try
+            {
+                var school = sqlSchoolRepository.Delete(Id);
+                return school;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public IEnumerable<School> GetAllSchool()
         {
-            var Schoollist = sqlSchoolRepository.GetAllSchool();
-            return Schoollist;
+            try
+            {
+                var Schoollist = sqlSchoolRepository.GetAllSchool();
+                return Schoollist;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public School GetSchool(int Id)
         {
-            var school = sqlSchoolRepository.GetSchool(Id);
-            return school;
+            try
+            {
+                var school = sqlSchoolRepository.GetSchool(Id);
+                return school;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public School Update(int id, School school)
         {
-            var schools = sqlSchoolRepository.update(id, school);
-            return schools;
+            try
+            {
+                var schools = sqlSchoolRepository.update(id, school);
+                return schools;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

@@ -12,12 +12,19 @@ namespace BusinessService.Services
         SqlClassRepository sqlClassRepository = new SqlClassRepository();
         public Class Add(Class cls)
         {
-            if(cls != null)
+            try
             {
-                sqlClassRepository.Add(cls);
-                return null;
+                if (cls != null)
+                {
+                    var result = sqlClassRepository.Add(cls);
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch(Exception ex)
             {
                 return null;
             }
@@ -25,26 +32,54 @@ namespace BusinessService.Services
 
         public Class Delete(int Id)
         {
-            var Classes = sqlClassRepository.Delete(Id);
-            return Classes;
+            try
+            {
+                var Classes = sqlClassRepository.Delete(Id);
+                return Classes;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Class> GetAllClass()
         {
-            var classlist = sqlClassRepository.GetAllClass();
-            return classlist;
+            try
+            {
+                var classlist = sqlClassRepository.GetAllClass();
+                return classlist;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public Class Getclass(int Id)
         {
-            var classes = sqlClassRepository.GetClass(Id);
-            return classes;
+            try
+            {
+                var classes = sqlClassRepository.GetClass(Id);
+                return classes;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public Class Update(int id, Class cls)
         {
-            var classes = sqlClassRepository.update(id, cls);
-            return classes;
+            try
+            {
+                var classes = sqlClassRepository.update(id, cls);
+                return classes;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace BusinessService.Api.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class SchoolController : ControllerBase
     {
         private readonly ISchoolRepository _schoolRepository;
@@ -19,39 +21,102 @@ namespace BusinessService.Api.Controllers
         {
             _schoolRepository = schoolRepository;
         }
-        public School Get(int id)
-        {
-            var school = _schoolRepository.GetSchool(id);
-            return school;
-
-        }
-        public IEnumerable<School> GetAllStudent()
-        {
-            var schoollist = _schoolRepository.GetAllSchool();
-            return schoollist;
-
-        }
-        public HttpResponseMessage Post(School school)
+        [HttpGet]
+        [Route("GetSchool/{id}")]
+        public IActionResult GetSchool(int id)
         {
             try
             {
-                _schoolRepository.Add(school);
-                return null;
+                var school = _schoolRepository.GetSchool(id);
+
+                if (school != null)
+                {
+                    return Ok(school);
+                }
+                else
+                {
+                    return NotFound(" School Not Found");
+                }
+            }
+            catch (Exception ex)
+            { 
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpGet]
+        [Route("getAllSchool")]
+        public IActionResult GetAllSchool()
+        {
+            try
+            {
+                var schoollist = _schoolRepository.GetAllSchool();
+
+                if (schoollist.Count() > 0)
+                {
+                    return Ok(schoollist);
+                }
+                else
+                {
+                    return NotFound(" SchoolList Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost]
+        [Route("addSchool")]
+        public IActionResult Post([FromBody]School school)
+        {
+            try
+            {
+               var result= _schoolRepository.Add(school);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
 
             }
             catch (Exception ex)
             {
-                return null;
+                return BadRequest(ex.Message);
             }
         }
-        public HttpResponseMessage Put(int id, School school)
+        [HttpPut]
+        [Route("updateSchool/{id}")]
+        public IActionResult UpdateSchool(int id,[FromBody]School school)
         {
-            _schoolRepository.Update(id, school);
-            return null;
+            try
+            {
+                var result=_schoolRepository.Update(id, school);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
-        public void Delete(int id)
-        {
-            _schoolRepository.Delete(id);
+        [HttpDelete]
+        [Route("deleteSchool/{id}")]
+        public IActionResult DeleteSchool(int id)
+        { 
+            try
+            {
+               var result= _schoolRepository.Delete(id);
+                if (result != null)
+                    return Ok("Success");
+                else
+                    return NotFound("Failed!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

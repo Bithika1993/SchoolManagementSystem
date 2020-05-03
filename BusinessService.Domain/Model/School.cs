@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace BusinessService.Domain.Model
@@ -7,9 +8,13 @@ namespace BusinessService.Domain.Model
     public class School
     {
         public int Id { get; set; }
+        [Required]
         public string SchoolName { get; set; }
+        [Required]
         public string SchoolType { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public string Country { get; set; }
     }
 }

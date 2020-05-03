@@ -8,51 +8,92 @@ using System.Text;
 namespace BusinessService.Services
 {
     public class StudentService : IStudentRepository
-    {
+    {       
         SqlStudentRepository sqlStudentRepository = new SqlStudentRepository();
-
-        
         public Student Add(Student student)
         {
-            if (student != null)
+            try
             {
-                sqlStudentRepository.Add(student);
-                return null;
+                if (student != null)
+                {
+                    var result = sqlStudentRepository.Add(student);
+                    return result;
+                }
+                else
+                {
+                    return null;
+                }
             }
-            else
+            catch(Exception ex)
             {
-                return null;
+                   return null;
             }
         }
 
         public Student Delete(int id)
         {
-            var student = sqlStudentRepository.Delete(id);
-            return student;
+            try
+            {
+                var student = sqlStudentRepository.Delete(id);
+                return student;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Student> GetAllStudent()
         {
-            var studentlist = sqlStudentRepository.GetAllStudent();
-            return studentlist;
+            try
+            {
+                var studentlist = sqlStudentRepository.GetAllStudent();
+                return studentlist;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public IEnumerable<Student> GetAllStudents()
         {
-            var studentlist = sqlStudentRepository.GetAllStudents();
-            return studentlist;
+            try
+            {
+                var studentlist = sqlStudentRepository.GetAllStudents();
+                return studentlist;
+            }
+            catch
+            {
+                return null;
+            }
+            
         }
 
         public Student GetStudent(int Id)
         {
-           var Students= sqlStudentRepository.GetStudent(Id);
-            return Students;
+            try
+            {
+                var Students = sqlStudentRepository.GetStudent(Id);
+                return Students;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public Student Update( int id,Student student)
         {
-            var students = sqlStudentRepository.update(id, student);
-            return students;
+            try
+            {
+                var students = sqlStudentRepository.update(id, student);
+                return students;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
    

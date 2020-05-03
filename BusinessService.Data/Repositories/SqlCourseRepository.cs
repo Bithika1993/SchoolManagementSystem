@@ -11,42 +11,77 @@ namespace BusinessService.Data.Repositories
         BusinessServiceDbContext context = new BusinessServiceDbContext();
         public Course GetCourse(int id)
         {
-            var coursedetails = context.Courses.FirstOrDefault(e => e.CourseId == id);
-            return coursedetails;
+            try
+            {
+                var coursedetails = context.Courses.FirstOrDefault(e => e.CourseId == id);
+                return coursedetails;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
         public IEnumerable<Course> GetAllCourse()
         {
-            var courseList = context.Courses.ToList();
-            return courseList;
+            try
+            {
+                var courseList = context.Courses.ToList();
+                return courseList;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
 
         }
         public Course Add(Course course)
         {
-            context.Courses.Add(course);
-            context.SaveChanges();
-            return null;
+            try
+            {
+                context.Courses.Add(course);
+                context.SaveChanges();
+                return null;
+            }
+            catch(Exception ex) 
+            {
+                return null;
+            }
         }
         public Course update(int id, Course course)
         {
-            var coursedetail = context.Courses.FirstOrDefault(e => e.CourseId == id);
-            if (coursedetail != null)
+            try
             {
-                coursedetail.CourseId = course.CourseId;
-                coursedetail.CourseName = course.CourseName;
-                coursedetail.Description = course.Description;
-                context.SaveChanges();
+                var coursedetail = context.Courses.FirstOrDefault(e => e.CourseId == id);
+                if (coursedetail != null)
+                {
+                    coursedetail.CourseId = course.CourseId;
+                    coursedetail.CourseName = course.CourseName;
+                    coursedetail.Description = course.Description;
+                    context.SaveChanges();
+                }
+                return coursedetail;
             }
-            return coursedetail;
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
         public Course Delete(int id)
         {
-            var coursedetail = context.Courses.FirstOrDefault(e => e.CourseId == id);
-            if (coursedetail != null)
+            try
             {
-                context.Courses.Remove(coursedetail);
-                context.SaveChanges();
+                var coursedetail = context.Courses.FirstOrDefault(e => e.CourseId == id);
+                if (coursedetail != null)
+                {
+                    context.Courses.Remove(coursedetail);
+                    context.SaveChanges();
+                }
+                return coursedetail;
             }
-            return coursedetail;
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

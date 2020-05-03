@@ -11,44 +11,80 @@ namespace BusinessService.Data.Repositories
         BusinessServiceDbContext context = new BusinessServiceDbContext();
         public School GetSchool(int id)
         {
-            var schooldetails = context.Schools.FirstOrDefault(e => e.Id == id);
-            return schooldetails;
+            try
+            {
+                var schooldetails = context.Schools.FirstOrDefault(e => e.Id == id);
+                return schooldetails;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
         public IEnumerable<School> GetAllSchool()
         {
-            var schoolList = context.Schools.ToList();
-            return schoolList;
+            try
+            {
+                var schoolList = context.Schools.ToList();
+                return schoolList;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
 
         }
         public School Add(School school)
         {
-            context.Schools.Add(school);
-            context.SaveChanges();
-            return null;
+            try
+            {
+                context.Schools.Add(school);
+                context.SaveChanges();
+                return school;
+            }
+            catch(Exception ex)
+            {
+                return null;
+
+            }
         }
         public School update(int id, School school)
         {
-            var schooldetail = context.Schools.FirstOrDefault(e => e.Id == id);
-            if (schooldetail != null)
+            try
             {
-                schooldetail.Id = school.Id;
-                schooldetail.SchoolName = school.SchoolName;
-                schooldetail.SchoolType = school.SchoolType;
-                schooldetail.City = school.City;
-                schooldetail.Country = school.Country;
-                context.SaveChanges();
+                var schooldetail = context.Schools.FirstOrDefault(e => e.Id == id);
+                if (schooldetail != null)
+                {
+                    schooldetail.Id = school.Id;
+                    schooldetail.SchoolName = school.SchoolName;
+                    schooldetail.SchoolType = school.SchoolType;
+                    schooldetail.City = school.City;
+                    schooldetail.Country = school.Country;
+                    context.SaveChanges();
+                }
+                return schooldetail;
             }
-            return schooldetail;
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
         public School Delete(int id)
         {
-            var schooldetail = context.Schools.FirstOrDefault(e => e.Id == id);
-            if (schooldetail != null)
+            try
             {
-                context.Schools.Remove(schooldetail);
-                context.SaveChanges();
+                var schooldetail = context.Schools.FirstOrDefault(e => e.Id == id);
+                if (schooldetail != null)
+                {
+                    context.Schools.Remove(schooldetail);
+                    context.SaveChanges();
+                }
+                return schooldetail;
             }
-            return schooldetail;
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }

@@ -9,41 +9,51 @@ namespace BusinessService.Data.Repositories
 {
     public class SqlStudentRepository
     {
-         BusinessServiceDbContext context= new BusinessServiceDbContext();        
+        BusinessServiceDbContext context= new BusinessServiceDbContext();  
         public Student GetStudent(int id)
-        {          
-            //var student = (from s in context.Set<Student>()
-            //               join c in context.Set<Course>()
-            //               on s.CourseId equals c.CourseId
-            //               join school in context.Set<School>()
-            //               on s.SchoolId equals school.Id
-            //               where s.Id == id
-            //               select new { c, s, school }).First();
-            //var studentdetails = student.s;
-            var studentdetails = context.Students.Where(e => e.Id == id)
-                      .Include(c => c.course)
-                      .Include(p => p.school)
-                      .First();
-            return studentdetails;
+        {
+            try
+            {
+                var studentdetails = context.Students.Where(e => e.Id == id)
+                          .Include(c => c.classes)
+                          .Include(p => p.course)
+                          .Include(s => s.school)
+                          .First();
+                return studentdetails;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+            
         }
         public IEnumerable<Student> GetAllStudent()
         {
-            var studentList = context.Students.ToList();
-            return studentList;            
+            try
+            {
+                var studentList = context.Students.ToList();
+                return studentList;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         public IEnumerable<Student> GetAllStudents()
-        {         
-            //var student = (from s in context.Set<Student>()
-            //               join c in context.Set<Course>()
-            //               on s.course.CourseId equals c.CourseId
-            //               join school in context.Set<School>()
-            //               on s.school.Id equals school.Id
-            //               select new { c, s, school });
-            var studentDetail = context.Students
-                      .Include(c => c.course)
-                      .Include(p => p.school)
-                      .ToList();                      
-            return studentDetail;
+        {
+            try
+            {
+                var studentDetail = context.Students
+                          .Include(c => c.classes)
+                          .Include(p => p.course)
+                          .Include(s => s.school)
+                          .ToList();
+                return studentDetail;
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
         public Student Add(Student student)
         {
@@ -51,7 +61,7 @@ namespace BusinessService.Data.Repositories
             {
                 context.Students.Add(student);
                 context.SaveChanges();
-                return null;
+                return student;
             }
             catch(Exception ex)
             {
@@ -60,26 +70,43 @@ namespace BusinessService.Data.Repositories
         }
         public Student update(int id,Student student)
         {
-            var studentdetail = context.Students.FirstOrDefault(e => e.Id == id);
-            if (studentdetail!=null)
+            try
             {
-                studentdetail.Id = student.Id;
-                studentdetail.Name = student.Name;
-                studentdetail.DOB = student.DOB;
-                studentdetail.Gender = student.Gender;
-                context.SaveChanges();
-            }         
-            return studentdetail;
+                var studentdetail = context.Students.FirstOrDefault(e => e.Id == id);
+                if (studentdetail != null)
+                {
+                    studentdetail.Id = student.Id;
+                    studentdetail.Name = student.Name;
+                    studentdetail.DOB = student.DOB;
+                    studentdetail.Gender = student.Gender;
+                    studentdetail.ClassId = student.ClassId;
+                    studentdetail.CourseId = student.CourseId;
+                    studentdetail.SchoolId = student.SchoolId;
+                    context.SaveChanges();
+                }
+                return studentdetail;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
         public Student Delete(int id)
         {
-            var studentdetail = context.Students.FirstOrDefault(e => e.Id == id);
-            if (studentdetail != null)
+            try
             {
-                context.Students.Remove(studentdetail);
-                context.SaveChanges();
+                var studentdetail = context.Students.FirstOrDefault(e => e.Id == id);
+                if (studentdetail != null)
+                {
+                    context.Students.Remove(studentdetail);
+                    context.SaveChanges();
+                }
+                return studentdetail;
             }
-            return studentdetail;
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
