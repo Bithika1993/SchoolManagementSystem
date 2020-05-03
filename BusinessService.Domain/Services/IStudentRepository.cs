@@ -5,13 +5,8 @@ using System.Text;
 
 namespace BusinessService.Domain.Services
 {
-    public interface IStudentRepository
-    { 
-            Student GetStudent(int Id);
-            Student Add(Student student);
-            Student Update(int id,Student student);
-            Student Delete(int Id);
-            IEnumerable<Student> GetAllStudent();
-            IEnumerable<Student> GetAllStudents();
+    public interface IStudentRepository:IRepository<Student>
+    {
+        IEnumerable<Student> GetAllStudents();
     }
 }

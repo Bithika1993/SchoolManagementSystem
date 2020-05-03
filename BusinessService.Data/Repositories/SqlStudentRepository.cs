@@ -55,43 +55,39 @@ namespace BusinessService.Data.Repositories
                 return null;
             }
         }
-        public Student Add(Student student)
+        public void Add(Student entities)
         {
             try
             {
-                context.Students.Add(student);
+                context.Students.Add(entities);
                 context.SaveChanges();
-                return student;
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
-        public Student update(int id,Student student)
+        public void update(int id,Student entities)
         {
             try
             {
                 var studentdetail = context.Students.FirstOrDefault(e => e.Id == id);
                 if (studentdetail != null)
                 {
-                    studentdetail.Id = student.Id;
-                    studentdetail.Name = student.Name;
-                    studentdetail.DOB = student.DOB;
-                    studentdetail.Gender = student.Gender;
-                    studentdetail.ClassId = student.ClassId;
-                    studentdetail.CourseId = student.CourseId;
-                    studentdetail.SchoolId = student.SchoolId;
+                    studentdetail.Id = entities.Id;
+                    studentdetail.Name = entities.Name;
+                    studentdetail.DOB = entities.DOB;
+                    studentdetail.Gender = entities.Gender;
+                    studentdetail.ClassId = entities.ClassId;
+                    studentdetail.CourseId = entities.CourseId;
+                    studentdetail.SchoolId = entities.SchoolId;
                     context.SaveChanges();
                 }
-                return studentdetail;
             }
             catch (Exception ex)
             {
-                return null;
             }
         }
-        public Student Delete(int id)
+        public void Delete(int id)
         {
             try
             {
@@ -101,11 +97,9 @@ namespace BusinessService.Data.Repositories
                     context.Students.Remove(studentdetail);
                     context.SaveChanges();
                 }
-                return studentdetail;
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
     }

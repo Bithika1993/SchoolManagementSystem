@@ -34,39 +34,35 @@ namespace BusinessService.Data.Repositories
             }
 
         }
-        public Class Add(Class classs)
+        public void Add(Class entities)
         {
             try
             {
-                context.classes.Add(classs);
+                context.classes.Add(entities);
                 context.SaveChanges();
-                return classs;
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
-        public Class update(int id, Class classs)
+        public void update(int id, Class entities)
         {
             try
             {
                 var classdetail = context.classes.FirstOrDefault(e => e.ClassId == id);
                 if (classdetail != null)
                 {
-                    classdetail.ClassId = classs.ClassId;
-                    classdetail.ClassName = classs.ClassName;
-                    classdetail.Description = classs.Description;
+                    classdetail.ClassId = entities.ClassId;
+                    classdetail.ClassName = entities.ClassName;
+                    classdetail.Description = entities.Description;
                     context.SaveChanges();
                 }
-                return classdetail;
             }
             catch
             {
-                return null;
             }
         }
-        public Class Delete(int id)
+        public void Delete(int id)
         {
             try
             {
@@ -76,11 +72,9 @@ namespace BusinessService.Data.Repositories
                     context.classes.Remove(classdetail);
                     context.SaveChanges();
                 }
-                return classdetail;
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
     }

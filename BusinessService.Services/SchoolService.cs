@@ -10,40 +10,29 @@ namespace BusinessService.Services
     public class SchoolService : ISchoolRepository
     {
         SqlSchoolRepository sqlSchoolRepository = new SqlSchoolRepository();
-        public School Add(School school)
+        public void Add(School entities)
         {
             try
             {
-                if (school != null)
-                {
-                    var result = sqlSchoolRepository.Add(school);
-                    return result;
-                }
-                else
-                {
-                    return null;
-                }
+               sqlSchoolRepository.Add(entities);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
 
-        public School Delete(int Id)
+        public void Delete(int Id)
         {
             try
             {
-                var school = sqlSchoolRepository.Delete(Id);
-                return school;
+                sqlSchoolRepository.Delete(Id);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
 
-        public IEnumerable<School> GetAllSchool()
+        public IEnumerable<School> GetAll()
         {
             try
             {
@@ -56,12 +45,12 @@ namespace BusinessService.Services
             }
         }
 
-        public School GetSchool(int Id)
+        public School Get(int Id)
         {
             try
             {
-                var school = sqlSchoolRepository.GetSchool(Id);
-                return school;
+                var entities = sqlSchoolRepository.GetSchool(Id);
+                return entities;
             }
             catch(Exception ex)
             {
@@ -69,16 +58,14 @@ namespace BusinessService.Services
             }
         }
 
-        public School Update(int id, School school)
+        public void Update(int id, School entities)
         {
             try
             {
-                var schools = sqlSchoolRepository.update(id, school);
-                return schools;
+                sqlSchoolRepository.update(id, entities);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
     }

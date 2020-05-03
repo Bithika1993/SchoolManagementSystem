@@ -5,12 +5,7 @@ using System.Text;
 
 namespace BusinessService.Domain.Services
 {
-    public interface IClassRepository
+    public interface IClassRepository:IRepository<Class>
     {
-        Class Getclass(int Id);
-        Class Add(Class cls);
-        Class Update(int id, Class cls);
-        Class Delete(int Id);
-        IEnumerable<Class> GetAllClass();
     }
 }

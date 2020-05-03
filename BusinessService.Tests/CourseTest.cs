@@ -15,22 +15,17 @@ namespace BusinessService.Tests
     [TestFixture]
     public class CourseTest
     {
-        ICourseRepository courseRepository;
-        public CourseTest()
-        {
-            courseRepository = new CourseService();
-        }
         [Test]
         public void GetStudent_Test()
         {
-            var controller = new CourseController(courseRepository);
+            var controller = new CourseController();
             var result = controller.GetAllCourse();
             //Assert.AreEqual(1, result.Count());
         }
         [Test]
         public void GetAllCourse_Test()
         {
-            var controller = new CourseController(courseRepository);
+            var controller = new CourseController();
             var result = controller.GetAllCourse();
            // Assert.AreEqual(1, result.Count());
         }
@@ -40,7 +35,7 @@ namespace BusinessService.Tests
             Course coursedetails = new Course();
             coursedetails.CourseName = "Science";
             coursedetails.Description= "abc";
-            var controller = new CourseController(courseRepository);
+            var controller = new CourseController();
             var result = controller.AddCourse(coursedetails);
             Assert.AreEqual(null, result);
         }

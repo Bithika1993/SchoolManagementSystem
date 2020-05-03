@@ -30,6 +30,7 @@ C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1
 C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.runtimeconfig.dev.json
 C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.dll
 C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Debug\netcoreapp3.1\BusinessService.Domain.pdb
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.csprojAssemblyReference.cache
 C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.csproj.CoreCompileInputs.cache
 C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.AssemblyInfoInputs.cache
 C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.AssemblyInfo.cs

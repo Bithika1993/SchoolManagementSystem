@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
+using BusinessService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +16,9 @@ namespace BusinessService.Api.Controllers
     public class CourseController : ControllerBase
     {
         private readonly ICourseRepository _courseRepository;
-        public CourseController(ICourseRepository courseRepository)
+        public CourseController()
         {
-            _courseRepository = courseRepository;
+            _courseRepository = new CourseService();
         }
         [HttpGet]
         [Route("GetCourse/{id}")]
@@ -25,7 +26,7 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-                var course = _courseRepository.GetCourse(id);
+                var course = _courseRepository.Get(id);
 
                 if (course != null)
                 {
@@ -48,7 +49,7 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-                var coursetlist = _courseRepository.GetAllCourse();
+                var coursetlist = _courseRepository.GetAll();
 
                 if (coursetlist.Count() > 0)
                 {
@@ -71,11 +72,8 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-               var result= _courseRepository.Add(course);
-                if (result != null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
+               _courseRepository.Add(course);
+                return Ok("Success");
             }
             catch (Exception ex)
             {
@@ -88,11 +86,8 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-                var result=_courseRepository.Update(id, course);
-                if (result != null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
+                _courseRepository.Update(id, course);
+                return Ok("Success");
             }
             catch (Exception ex)
             {

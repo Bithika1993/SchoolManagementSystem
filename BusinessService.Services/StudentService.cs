@@ -10,40 +10,29 @@ namespace BusinessService.Services
     public class StudentService : IStudentRepository
     {       
         SqlStudentRepository sqlStudentRepository = new SqlStudentRepository();
-        public Student Add(Student student)
+        public void Add(Student entities)
         {
             try
             {
-                if (student != null)
-                {
-                    var result = sqlStudentRepository.Add(student);
-                    return result;
-                }
-                else
-                {
-                    return null;
-                }
+                sqlStudentRepository.Add(entities);
             }
             catch(Exception ex)
             {
-                   return null;
             }
         }
 
-        public Student Delete(int id)
+        public void Delete(int id)
         {
             try
             {
-                var student = sqlStudentRepository.Delete(id);
-                return student;
+                sqlStudentRepository.Delete(id);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
 
-        public IEnumerable<Student> GetAllStudent()
+        public IEnumerable<Student> GetAll()
         {
             try
             {
@@ -70,7 +59,7 @@ namespace BusinessService.Services
             
         }
 
-        public Student GetStudent(int Id)
+        public Student Get(int Id)
         {
             try
             {
@@ -83,16 +72,14 @@ namespace BusinessService.Services
             }
         }
 
-        public Student Update( int id,Student student)
+        public void Update( int id,Student entities)
         {
             try
             {
-                var students = sqlStudentRepository.update(id, student);
-                return students;
+                sqlStudentRepository.update(id, entities);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
     }

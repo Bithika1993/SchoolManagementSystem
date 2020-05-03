@@ -15,29 +15,24 @@ namespace BusinessService.Tests
     [TestFixture]
     public class StudentTest
     {
-        IStudentRepository studentRepository;
-        public StudentTest()
-        {
-             studentRepository = new StudentService();
-        }
         [Test]
         public void GetStudent_Test()
         {
-            var controller = new StudentController(studentRepository);
+            var controller = new StudentController();
             var result = controller.GetStudent(6);
             //Assert.AreEqual(1, result.Count());
         }
         [Test]
         public void GetAllStudent_Test()
         {
-            var controller = new StudentController(studentRepository);
+            var controller = new StudentController();
             var result=controller.GetAllStudent();
            // Assert.AreEqual(1,result.Count());
         }
         [Test]
         public void GetAllStudents_Test()
         {
-            var controller = new StudentController(studentRepository);
+            var controller = new StudentController();
             var result = controller.GetAllStudents();
             //Assert.AreEqual(1, result.Count());
         }
@@ -50,7 +45,7 @@ namespace BusinessService.Tests
             studentdetails.Gender = "Male";
             studentdetails.CourseId = 2;
             studentdetails.SchoolId = 2;
-            var controller = new StudentController(studentRepository);
+            var controller = new StudentController();
             var result = controller.AddStudent(studentdetails);
             Assert.AreEqual(null, result);
         }

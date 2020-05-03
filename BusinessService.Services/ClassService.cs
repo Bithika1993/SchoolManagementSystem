@@ -10,40 +10,29 @@ namespace BusinessService.Services
     public class ClassService : IClassRepository
     {
         SqlClassRepository sqlClassRepository = new SqlClassRepository();
-        public Class Add(Class cls)
+        public void Add(Class cls)
         {
             try
             {
-                if (cls != null)
-                {
-                    var result = sqlClassRepository.Add(cls);
-                    return result;
-                }
-                else
-                {
-                    return null;
-                }
+                sqlClassRepository.Add(cls);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
 
-        public Class Delete(int Id)
+        public void Delete(int Id)
         {
             try
             {
-                var Classes = sqlClassRepository.Delete(Id);
-                return Classes;
+                sqlClassRepository.Delete(Id);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
 
-        public IEnumerable<Class> GetAllClass()
+        public IEnumerable<Class> GetAll()
         {
             try
             {
@@ -56,7 +45,7 @@ namespace BusinessService.Services
             }
         }
 
-        public Class Getclass(int Id)
+        public Class Get(int Id)
         {
             try
             {
@@ -69,16 +58,14 @@ namespace BusinessService.Services
             }
         }
 
-        public Class Update(int id, Class cls)
+        public void Update(int id, Class cls)
         {
             try
             {
-                var classes = sqlClassRepository.update(id, cls);
-                return classes;
+                sqlClassRepository.update(id, cls);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
     }

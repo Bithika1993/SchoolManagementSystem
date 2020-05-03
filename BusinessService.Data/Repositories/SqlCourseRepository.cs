@@ -34,39 +34,35 @@ namespace BusinessService.Data.Repositories
             }
 
         }
-        public Course Add(Course course)
+        public void Add(Course entities)
         {
             try
             {
-                context.Courses.Add(course);
+                context.Courses.Add(entities);
                 context.SaveChanges();
-                return null;
             }
             catch(Exception ex) 
             {
-                return null;
             }
         }
-        public Course update(int id, Course course)
+        public void update(int id, Course entities)
         {
             try
             {
                 var coursedetail = context.Courses.FirstOrDefault(e => e.CourseId == id);
                 if (coursedetail != null)
                 {
-                    coursedetail.CourseId = course.CourseId;
-                    coursedetail.CourseName = course.CourseName;
-                    coursedetail.Description = course.Description;
+                    coursedetail.CourseId = entities.CourseId;
+                    coursedetail.CourseName = entities.CourseName;
+                    coursedetail.Description = entities.Description;
                     context.SaveChanges();
                 }
-                return coursedetail;
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
-        public Course Delete(int id)
+        public void Delete(int id)
         {
             try
             {
@@ -76,11 +72,9 @@ namespace BusinessService.Data.Repositories
                     context.Courses.Remove(coursedetail);
                     context.SaveChanges();
                 }
-                return coursedetail;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return null;
             }
         }
     }

@@ -5,12 +5,7 @@ using System.Text;
 
 namespace BusinessService.Domain.Services
 {
-    public interface ICourseRepository
+    public interface ICourseRepository :IRepository<Course>
     {
-        Course GetCourse(int Id);
-        Course Add(Course course);
-        Course Update(int id, Course course);
-        Course Delete(int Id);
-        IEnumerable<Course> GetAllCourse();
     }
 }

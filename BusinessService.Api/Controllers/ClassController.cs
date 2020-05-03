@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
+using BusinessService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,9 +16,9 @@ namespace BusinessService.Api.Controllers
     public class ClassController : ControllerBase
     {
         private readonly IClassRepository _classRepository;
-        public ClassController(IClassRepository classRepository)
+        public ClassController()
         {
-            _classRepository = classRepository;
+            _classRepository = new ClassService();
         }
         [HttpGet]
         [Route("GetClass/{id}")]
@@ -25,7 +26,7 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-                var classes = _classRepository.Getclass(id);
+                var classes = _classRepository.Get(id);
 
                 if (classes != null)
                 {
@@ -48,7 +49,7 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-                var classtlist = _classRepository.GetAllClass();
+                var classtlist = _classRepository.GetAll();
 
                 if (classtlist.Count() > 0)
                 {
@@ -67,16 +68,12 @@ namespace BusinessService.Api.Controllers
         }
         [HttpPost]
         [Route("addClass")]
-        public IActionResult AddClass([FromBody]Class cls)
+        public IActionResult AddClass([FromBody]Class entities)
         {
             try
             {
-               var result= _classRepository.Add(cls);
-                if (result != null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
-
+                _classRepository.Add(entities);
+                return Ok("Success");
             }
             catch (Exception ex)
             {
@@ -85,15 +82,12 @@ namespace BusinessService.Api.Controllers
         }
         [HttpPut]
         [Route("updateClass/{id}")]
-        public IActionResult UpdateClass(int id, [FromBody]Class cls)
+        public IActionResult UpdateClass(int id, [FromBody]Class entities)
         { 
             try
             { 
-                var result=_classRepository.Update(id, cls);
-                if (result != null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
+                _classRepository.Update(id, entities);
+                return Ok("Success");
             }
             catch(Exception ex)
             {
@@ -106,11 +100,8 @@ namespace BusinessService.Api.Controllers
         {          
             try
             {
-               var result= _classRepository.Delete(id);
-                if (result != null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
+               _classRepository.Delete(id);
+               return Ok("Success");
             }
             catch (Exception ex)
             {

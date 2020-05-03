@@ -6,6 +6,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
+using BusinessService.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,9 +17,9 @@ namespace BusinessService.Api.Controllers
     public class StudentController : ControllerBase
     {
         private readonly IStudentRepository _studentRepository;
-        public StudentController(IStudentRepository studentRepository)
+        public StudentController()
         {
-            _studentRepository = studentRepository;
+            _studentRepository = new StudentService();
         }
         [HttpGet]
         [Route("GetStudent/{id}")]
@@ -26,7 +27,7 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-                var student = _studentRepository.GetStudent(id);
+                var student = _studentRepository.Get(id);
 
                 if (student != null)
                 {
@@ -49,7 +50,7 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-                var studentlist = _studentRepository.GetAllStudent();
+                var studentlist = _studentRepository.GetAll();
 
                 if (studentlist.Count() > 0)
                 {
@@ -94,12 +95,8 @@ namespace BusinessService.Api.Controllers
         {
             try
             {
-               var result=_studentRepository.Add(student);
-                if (result != null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
-
+               _studentRepository.Add(student);
+                return Ok("Success");
             }
             catch (Exception ex)
             {
@@ -112,12 +109,8 @@ namespace BusinessService.Api.Controllers
         {          
             try
             {
-               var result= _studentRepository.Update(id, student);
-                if(result!=null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
-
+               _studentRepository.Update(id, student);
+               return Ok("Success");
             }
             catch (Exception ex)
             {
@@ -130,12 +123,8 @@ namespace BusinessService.Api.Controllers
         {           
             try
             {
-               var result= _studentRepository.Delete(id);
-                if (result != null)
-                    return Ok("Success");
-                else
-                    return NotFound("Failed!");
-
+               _studentRepository.Delete(id);
+                return Ok("Success");
             }
             catch (Exception ex)
             {

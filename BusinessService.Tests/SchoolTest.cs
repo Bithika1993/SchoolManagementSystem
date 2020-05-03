@@ -14,22 +14,18 @@ namespace BusinessService.Tests
 {
     public class SchoolTest
     {
-        ISchoolRepository schoolRepository;
-        public SchoolTest()
-        {
-            schoolRepository = new SchoolService();
-        }
+        
         [Test]
         public void GetSchool_Test()
         {
-            var controller = new SchoolController(schoolRepository);
+            var controller = new SchoolController();
             var result = controller.GetSchool(1);
             //Assert.AreEqual(1, result.Count());
         }
         [Test]
         public void GetAllSchool_Test()
         {
-            var controller = new SchoolController(schoolRepository);
+            var controller = new SchoolController();
             var result = controller.GetAllSchool();
             //Assert.AreEqual(1, result.Count());
         }
@@ -41,7 +37,7 @@ namespace BusinessService.Tests
             schooldetails.SchoolType = "xyz";
             schooldetails.Country = "India";
             schooldetails.City = "Kolkata";
-            var controller = new SchoolController(schoolRepository);
+            var controller = new SchoolController();
             var result = controller.Post(schooldetails);
             Assert.AreEqual(null, result);
         }

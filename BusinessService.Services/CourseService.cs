@@ -10,46 +10,35 @@ namespace BusinessService.Services
     public class CourseService : ICourseRepository
     {
         SqlCourseRepository sqlCourseRepository = new SqlCourseRepository();
-        public Course Add(Course course)
+        public void Add(Course entities)
         {
             try
             {
-                if (course != null)
-                {
-                    var result = sqlCourseRepository.Add(course);
-                    return result;
-                }
-                else
-                {
-                    return null;
-                }
+               sqlCourseRepository.Add(entities);
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
 
-        public Course Delete(int Id)
+        public void Delete(int Id)
         {
             try
             { 
-                var course = sqlCourseRepository.Delete(Id);
-                return course;
+               sqlCourseRepository.Delete(Id);
             }
             catch(Exception ex)
             {
-                return null;
             }
 
         }
 
-        public IEnumerable<Course> GetAllCourse()
+        public IEnumerable<Course> GetAll()
         {
             try
             {
-                var course = sqlCourseRepository.GetAllCourse();
-                return course;
+                var entities = sqlCourseRepository.GetAllCourse();
+                return entities;
             }
             catch (Exception ex)
             {
@@ -57,7 +46,7 @@ namespace BusinessService.Services
             }
         }
 
-        public Course GetCourse(int Id)
+        public Course Get(int Id)
         {
             try
             {
@@ -70,16 +59,14 @@ namespace BusinessService.Services
             }
         }
 
-        public Course Update(int id, Course course)
+        public void Update(int id, Course entities)
         {
             try
             {
-                var courses = sqlCourseRepository.update(id, course);
-                return courses;
+                sqlCourseRepository.update(id, entities);
             }
             catch(Exception ex)
             {
-                return null;
             }
             
         }

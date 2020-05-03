@@ -11,24 +11,18 @@ using System.Text;
 namespace BusinessService.Tests
 {
     public class ClassTest
-    {
-        IClassRepository classRepository;
-
-        public ClassTest()
-        {
-            classRepository = new ClassService();
-        }
+    { 
         [Test]
         public void GetClass_Test()
         {
-            var controller = new ClassController(classRepository);
+            var controller = new ClassController();
             var result = controller.GetClass(1);
             //Assert.AreEqual(1, result.Count());
         }
         [Test]
         public void GetAllClass_Test()
         {
-            var controller = new ClassController(classRepository);
+            var controller = new ClassController();
             var result = controller.GetAllClass();
            // Assert.AreEqual(1, result.Count());
         }
@@ -38,7 +32,7 @@ namespace BusinessService.Tests
             Class classdetails = new Class();
             classdetails.ClassName = "class-1";
             classdetails.Description = "abc";
-            var controller = new ClassController(classRepository);
+            var controller = new ClassController();
             var result = controller.AddClass(classdetails);
             Assert.AreEqual(null, result);
         }

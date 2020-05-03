@@ -34,42 +34,37 @@ namespace BusinessService.Data.Repositories
             }
 
         }
-        public School Add(School school)
+        public void Add(School entities)
         {
             try
             {
-                context.Schools.Add(school);
+                context.Schools.Add(entities);
                 context.SaveChanges();
-                return school;
             }
             catch(Exception ex)
             {
-                return null;
-
             }
         }
-        public School update(int id, School school)
+        public void update(int id, School entities)
         {
             try
             {
                 var schooldetail = context.Schools.FirstOrDefault(e => e.Id == id);
                 if (schooldetail != null)
                 {
-                    schooldetail.Id = school.Id;
-                    schooldetail.SchoolName = school.SchoolName;
-                    schooldetail.SchoolType = school.SchoolType;
-                    schooldetail.City = school.City;
-                    schooldetail.Country = school.Country;
+                    schooldetail.Id = entities.Id;
+                    schooldetail.SchoolName = entities.SchoolName;
+                    schooldetail.SchoolType = entities.SchoolType;
+                    schooldetail.City = entities.City;
+                    schooldetail.Country = entities.Country;
                     context.SaveChanges();
                 }
-                return schooldetail;
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
-        public School Delete(int id)
+        public void Delete(int id)
         {
             try
             {
@@ -79,11 +74,9 @@ namespace BusinessService.Data.Repositories
                     context.Schools.Remove(schooldetail);
                     context.SaveChanges();
                 }
-                return schooldetail;
             }
             catch(Exception ex)
             {
-                return null;
             }
         }
     }
