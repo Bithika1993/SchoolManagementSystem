@@ -1,0 +1,13 @@
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Release\netcoreapp3.1\BusinessService.Domain.exe
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Release\netcoreapp3.1\BusinessService.Domain.deps.json
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Release\netcoreapp3.1\BusinessService.Domain.runtimeconfig.json
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Release\netcoreapp3.1\BusinessService.Domain.runtimeconfig.dev.json
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Release\netcoreapp3.1\BusinessService.Domain.dll
+C:\Project\SchoolManagementSystem\BusinessService.Domain\bin\Release\netcoreapp3.1\BusinessService.Domain.pdb
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Release\netcoreapp3.1\BusinessService.Domain.csprojAssemblyReference.cache
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Release\netcoreapp3.1\BusinessService.Domain.csproj.CoreCompileInputs.cache
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Release\netcoreapp3.1\BusinessService.Domain.AssemblyInfoInputs.cache
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Release\netcoreapp3.1\BusinessService.Domain.AssemblyInfo.cs
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Release\netcoreapp3.1\BusinessService.Domain.dll
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Release\netcoreapp3.1\BusinessService.Domain.pdb
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Release\netcoreapp3.1\BusinessService.Domain.genruntimeconfig.cache

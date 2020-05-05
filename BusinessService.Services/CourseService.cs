@@ -37,7 +37,7 @@ namespace BusinessService.Services
         {
             try
             {
-                var entities = sqlCourseRepository.GetAllCourse();
+                var entities = sqlCourseRepository.GetAll();
                 return entities;
             }
             catch (Exception ex)
@@ -50,7 +50,7 @@ namespace BusinessService.Services
         {
             try
             {
-                var coursedetail = sqlCourseRepository.GetCourse(Id);
+                var coursedetail = sqlCourseRepository.Get(Id);
                 return coursedetail;
             }
             catch (Exception ex)

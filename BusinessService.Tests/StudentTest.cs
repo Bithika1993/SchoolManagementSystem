@@ -4,6 +4,7 @@ using BusinessService.Data.Repositories;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
 using BusinessService.Services;
+using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -19,35 +20,48 @@ namespace BusinessService.Tests
         public void GetStudent_Test()
         {
             var controller = new StudentController();
-            var result = controller.GetStudent(6);
-            //Assert.AreEqual(1, result.Count());
+            var Respond = controller.GetStudentWithAcademicDetails(2);
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
         }
         [Test]
-        public void GetAllStudent_Test()
+        public void GetAllStudentPersonalInfo_Test()
         {
             var controller = new StudentController();
-            var result=controller.GetAllStudent();
-           // Assert.AreEqual(1,result.Count());
+            var Respond = controller.GetAllStudentPersonalInfo();
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
         }
         [Test]
-        public void GetAllStudents_Test()
+        public void GetAllStudentsDetails_Test()
         {
             var controller = new StudentController();
-            var result = controller.GetAllStudents();
-            //Assert.AreEqual(1, result.Count());
+            var Respond = controller.GetAllStudentsDetails();
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
+        }
+        [Test]
+        public void GetStudentsBySchoolId_Test()
+        {
+            var controller = new StudentController();
+            var Respond = controller.GetStudentsBySchoolId(3);
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
         }
         [Test]
         public void AddStudent_Test()
         {
             Student studentdetails = new Student();
             studentdetails.Name = "john";
-            studentdetails.DOB = "01-01-2019";
+            studentdetails.DOB = "01-01-1995";
             studentdetails.Gender = "Male";
-            studentdetails.CourseId = 2;
-            studentdetails.SchoolId = 2;
+            studentdetails.CourseId = 1;
+            studentdetails.SchoolId = 3;
+            studentdetails.ClassId = 1;
             var controller = new StudentController();
-            var result = controller.AddStudent(studentdetails);
-            Assert.AreEqual(null, result);
+            var Respond = controller.AddStudent(studentdetails);
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
         }
     }
 }

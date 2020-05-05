@@ -7,6 +7,7 @@ namespace BusinessService.Domain.Services
 {
     public interface IStudentRepository:IRepository<Student>
     {
-        IEnumerable<Student> GetAllStudents();
+        IEnumerable<Student> GetAllStudentsDetails();
+        IEnumerable<Student> GetStudentsBySchoolId(int id);
     }
 }

@@ -4,6 +4,7 @@ using BusinessService.Data.Repositories;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
 using BusinessService.Services;
+using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -16,18 +17,20 @@ namespace BusinessService.Tests
     public class CourseTest
     {
         [Test]
-        public void GetStudent_Test()
+        public void GetCourse_Test()
         {
             var controller = new CourseController();
-            var result = controller.GetAllCourse();
-            //Assert.AreEqual(1, result.Count());
+            var Respond = controller.GetCourse(1);
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
         }
         [Test]
         public void GetAllCourse_Test()
         {
             var controller = new CourseController();
-            var result = controller.GetAllCourse();
-           // Assert.AreEqual(1, result.Count());
+            var Respond = controller.GetAllCourse();
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
         }
         [Test]
         public void AddCourse_Test()
@@ -36,8 +39,9 @@ namespace BusinessService.Tests
             coursedetails.CourseName = "Science";
             coursedetails.Description= "abc";
             var controller = new CourseController();
-            var result = controller.AddCourse(coursedetails);
-            Assert.AreEqual(null, result);
+            var Respond = controller.AddCourse(coursedetails);
+            var Result = Respond as OkObjectResult;
+            Assert.AreEqual(200, Result.StatusCode);
         }
     }
 }

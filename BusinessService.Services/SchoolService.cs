@@ -36,7 +36,7 @@ namespace BusinessService.Services
         {
             try
             {
-                var Schoollist = sqlSchoolRepository.GetAllSchool();
+                var Schoollist = sqlSchoolRepository.GetAll();
                 return Schoollist;
             }
             catch(Exception ex)
@@ -49,7 +49,7 @@ namespace BusinessService.Services
         {
             try
             {
-                var entities = sqlSchoolRepository.GetSchool(Id);
+                var entities = sqlSchoolRepository.Get(Id);
                 return entities;
             }
             catch(Exception ex)

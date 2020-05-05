@@ -22,8 +22,8 @@ namespace BusinessService.Api.Controllers
             _studentRepository = new StudentService();
         }
         [HttpGet]
-        [Route("GetStudent/{id}")]
-        public IActionResult GetStudent(int id)
+        [Route("GetStudentWithAcademicDetails/{id}")]
+        public IActionResult GetStudentWithAcademicDetails(int id)
         {
             try
             {
@@ -45,8 +45,8 @@ namespace BusinessService.Api.Controllers
 
         }
         [HttpGet]
-        [Route("getAllStudent")]
-        public IActionResult GetAllStudent()
+        [Route("GetAllStudentPersonalInfo")]
+        public IActionResult GetAllStudentPersonalInfo()
         {
             try
             {
@@ -65,15 +65,36 @@ namespace BusinessService.Api.Controllers
             {
                 return BadRequest(ex.Message);
             }
-
         }
         [HttpGet]
-        [Route("getAllStudents")]
-        public IActionResult GetAllStudents()
+        [Route("GetAllStudentsDetails")]
+        public IActionResult GetAllStudentsDetails()
         {
             try
             {
-                var studentlist = _studentRepository.GetAllStudents();
+                var studentlist = _studentRepository.GetAllStudentsDetails();
+
+                if (studentlist.Count() > 0)
+                {
+                    return Ok(studentlist);
+                }
+                else
+                {
+                    return NotFound(" StudentList Not Found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpGet]
+        [Route("GetStudentsBySchoolId/{id}")]
+        public IActionResult GetStudentsBySchoolId(int id)
+        {
+            try
+            {
+                var studentlist = _studentRepository.GetStudentsBySchoolId(id);
 
                 if (studentlist.Count() > 0)
                 {

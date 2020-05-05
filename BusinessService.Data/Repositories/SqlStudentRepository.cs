@@ -7,10 +7,10 @@ using System.Text;
 
 namespace BusinessService.Data.Repositories
 {
-    public class SqlStudentRepository
+    public class SqlStudentRepository:Repository<Student>
     {
         BusinessServiceDbContext context= new BusinessServiceDbContext();  
-        public Student GetStudent(int id)
+        public Student GetStudentWithAcademicDetails(int id)
         {
             try
             {
@@ -27,19 +27,7 @@ namespace BusinessService.Data.Repositories
             }
             
         }
-        public IEnumerable<Student> GetAllStudent()
-        {
-            try
-            {
-                var studentList = context.Students.ToList();
-                return studentList;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-        public IEnumerable<Student> GetAllStudents()
+        public IEnumerable<Student> GetAllStudentsDetails()
         {
             try
             {
@@ -55,15 +43,19 @@ namespace BusinessService.Data.Repositories
                 return null;
             }
         }
-        public void Add(Student entities)
+        public IEnumerable<Student> GetStudentsBySchoolId(int id)
         {
             try
             {
-                context.Students.Add(entities);
-                context.SaveChanges();
+                var studentDetail = context.Students.Where(e => e.SchoolId == id)
+                                    .Include(c => c.classes)
+                                    .Include(p => p.course)
+                                    .ToList();
+                return studentDetail;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                return null;
             }
         }
         public void update(int id,Student entities)
@@ -84,21 +76,6 @@ namespace BusinessService.Data.Repositories
                 }
             }
             catch (Exception ex)
-            {
-            }
-        }
-        public void Delete(int id)
-        {
-            try
-            {
-                var studentdetail = context.Students.FirstOrDefault(e => e.Id == id);
-                if (studentdetail != null)
-                {
-                    context.Students.Remove(studentdetail);
-                    context.SaveChanges();
-                }
-            }
-            catch(Exception ex)
             {
             }
         }

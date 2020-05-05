@@ -36,7 +36,7 @@ namespace BusinessService.Services
         {
             try
             {
-                var classlist = sqlClassRepository.GetAllClass();
+                var classlist = sqlClassRepository.GetAll();
                 return classlist;
             }
             catch(Exception ex)
@@ -49,7 +49,7 @@ namespace BusinessService.Services
         {
             try
             {
-                var classes = sqlClassRepository.GetClass(Id);
+                var classes = sqlClassRepository.Get(Id);
                 return classes;
             }
             catch(Exception ex)

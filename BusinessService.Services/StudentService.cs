@@ -36,7 +36,7 @@ namespace BusinessService.Services
         {
             try
             {
-                var studentlist = sqlStudentRepository.GetAllStudent();
+                var studentlist = sqlStudentRepository.GetAll();
                 return studentlist;
             }
             catch
@@ -45,11 +45,11 @@ namespace BusinessService.Services
             }
         }
 
-        public IEnumerable<Student> GetAllStudents()
+        public IEnumerable<Student> GetAllStudentsDetails()
         {
             try
             {
-                var studentlist = sqlStudentRepository.GetAllStudents();
+                var studentlist = sqlStudentRepository.GetAllStudentsDetails();
                 return studentlist;
             }
             catch
@@ -58,12 +58,25 @@ namespace BusinessService.Services
             }
             
         }
+        public IEnumerable<Student> GetStudentsBySchoolId(int id)
+        {
+            try
+            {
+                var studentlist = sqlStudentRepository.GetStudentsBySchoolId(id);
+                return studentlist;
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
 
         public Student Get(int Id)
         {
             try
             {
-                var Students = sqlStudentRepository.GetStudent(Id);
+                var Students = sqlStudentRepository.GetStudentWithAcademicDetails(Id);
                 return Students;
             }
             catch (Exception ex)
