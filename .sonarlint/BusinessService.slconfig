@@ -1,0 +1,12 @@
+{
+  "ServerUri": "http://localhost:9000/",
+  "Organization": null,
+  "ProjectKey": "SchoolManagement",
+  "ProjectName": "SchoolManagement",
+  "Profiles": {
+    "CSharp": {
+      "ProfileKey": "AXGyujQL5kIeNztMr680",
+      "ProfileTimestamp": "2020-04-25T19:04:39Z"
+    }
+  }
+}

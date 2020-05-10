@@ -2,11 +2,11 @@
 
 namespace BusinessService.Tests
 {
-    class Program
+    public static class Program
     {
         static void Main(string[] args)
         {
-            
+            throw new NotImplementedException();
         }
     }
 }

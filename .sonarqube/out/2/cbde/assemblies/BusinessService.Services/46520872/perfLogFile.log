@@ -1,0 +1,21 @@
+File name	Line	Function	Duration[ms]	Explored nodes
+C:\Project\SchoolManagementSystem\BusinessService.Services\ClassService.cs	11	_BusinessService.Services.ClassService.Add$BusinessService.Domain.Model.Class$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\ClassService.cs	16	_BusinessService.Services.ClassService.Delete$int$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\ClassService.cs	21	_BusinessService.Services.ClassService.GetAll$$	0	2
+C:\Project\SchoolManagementSystem\BusinessService.Services\ClassService.cs	40	_BusinessService.Services.ClassService.Update$int.BusinessService.Domain.Model.Class$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\CourseService.cs	11	_BusinessService.Services.CourseService.Add$BusinessService.Domain.Model.Course$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\CourseService.cs	16	_BusinessService.Services.CourseService.Delete$int$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\CourseService.cs	22	_BusinessService.Services.CourseService.GetAll$$	0	2
+C:\Project\SchoolManagementSystem\BusinessService.Services\CourseService.cs	41	_BusinessService.Services.CourseService.Update$int.BusinessService.Domain.Model.Course$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\Program.cs	6	_BusinessService.Services.Program.Main$string$$$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\SchoolService.cs	11	_BusinessService.Services.SchoolService.Add$BusinessService.Domain.Model.School$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\SchoolService.cs	16	_BusinessService.Services.SchoolService.Delete$int$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\SchoolService.cs	21	_BusinessService.Services.SchoolService.GetAll$$	0	2
+C:\Project\SchoolManagementSystem\BusinessService.Services\SchoolService.cs	40	_BusinessService.Services.SchoolService.Update$int.BusinessService.Domain.Model.School$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs	19	_BusinessService.Services.StudentService.Add$BusinessService.Domain.Model.Student$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs	24	_BusinessService.Services.StudentService.Delete$int$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs	29	_BusinessService.Services.StudentService.GetAll$$	0	5
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs	44	_BusinessService.Services.StudentService.GetAllStudentsDetails$$	0	2
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs	50	_BusinessService.Services.StudentService.GetStudentsBySchoolId$int$	0	2
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs	57	_BusinessService.Services.StudentService.Get$int$	0	2
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs	63	_BusinessService.Services.StudentService.Update$int.BusinessService.Domain.Model.Student$	0	3

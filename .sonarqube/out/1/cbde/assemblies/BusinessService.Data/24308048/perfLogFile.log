@@ -1,0 +1,7 @@
+File name	Line	Function	Duration[ms]	Explored nodes
+C:\Project\SchoolManagementSystem\BusinessService.Data\Migrations\20200509073342_createBD.cs	105	_BusinessService.Data.Migrations.createBD.Down$Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Data\BusinessServiceDbContext.cs	11	_BusinessService.Data.BusinessServiceDbContext.OnConfiguring$Microsoft.EntityFrameworkCore.DbContextOptionsBuilder$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Data\Program.cs	6	_BusinessService.Data.Program.Main$string$$$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\Repository.cs	21	_BusinessService.Data.Repositories.Repository$TEntity$.GetAll$$	0	2
+C:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\Repository.cs	26	_BusinessService.Data.Repositories.Repository$TEntity$.Add$TEntity$	0	3
+C:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\Repository.cs	32	_BusinessService.Data.Repositories.Repository$TEntity$.Delete$int$	0	5

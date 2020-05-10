@@ -1,47 +1,35 @@
 ﻿using BusinessService.Api.Controllers;
-using BusinessService.Data;
-using BusinessService.Data.Repositories;
-using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
-using BusinessService.Services;
 using Microsoft.AspNetCore.Mvc;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace BusinessService.Tests
 {
     [TestFixture]
     public class CourseTest
     {
+        private readonly CourseController _courseController;
+        private readonly ICourseRepository _courseRepository;
+        public CourseTest()
+        {
+            _courseRepository = new CourseService();
+            _courseController = new CourseController(_courseRepository);
+        }
         [Test]
         public void GetCourse_Test()
         {
-            var controller = new CourseController();
-            var Respond = controller.GetCourse(1);
+            var Respond = _courseController.GetCourse(2);
             var Result = Respond as OkObjectResult;
             Assert.AreEqual(200, Result.StatusCode);
+
         }
         [Test]
-        public void GetAllCourse_Test()
+        public void GetAllSchool_Test()
         {
-            var controller = new CourseController();
-            var Respond = controller.GetAllCourse();
+            var Respond = _courseController.GetAllCourse();
             var Result = Respond as OkObjectResult;
             Assert.AreEqual(200, Result.StatusCode);
         }
-        [Test]
-        public void AddCourse_Test()
-        {
-            Course coursedetails = new Course();
-            coursedetails.CourseName = "Science";
-            coursedetails.Description= "abc";
-            var controller = new CourseController();
-            var Respond = controller.AddCourse(coursedetails);
-            var Result = Respond as OkObjectResult;
-            Assert.AreEqual(200, Result.StatusCode);
-        }
+
     }
 }

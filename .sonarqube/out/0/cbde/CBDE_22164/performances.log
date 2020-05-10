@@ -1,0 +1,46 @@
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Constants.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\HttpResponses.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Model\Class.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Model\Course .cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Model\School.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Model\Student.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Model\StudentDetail.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Program.cs
+Main 51
+Main -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Services\IClassRepository.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Services\ICourseRepository.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Services\IRepository.cs
+Get 3
+Get -1
+Add 3
+Add -1
+Update 4
+Update -1
+Delete 3
+Delete -1
+GetAll 3
+GetAll -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Services\ISchoolRepository.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\Services\IStudentRepository.cs
+GetAllStudentsDetails 4
+GetAllStudentsDetails -1
+GetStudentsBySchoolId 3
+GetStudentsBySchoolId -1
+
+C:\Users\cognizantdotnet17\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Domain\obj\Debug\netcoreapp3.1\BusinessService.Domain.AssemblyInfo.cs
+

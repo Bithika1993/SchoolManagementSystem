@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
+using BusinessService.Domain;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
-using BusinessService.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessService.Api.Controllers
@@ -15,10 +11,11 @@ namespace BusinessService.Api.Controllers
     [Route("api/[controller]")]
     public class CourseController : ControllerBase
     {
+        private readonly HttpResponses response = new HttpResponses();
         private readonly ICourseRepository _courseRepository;
-        public CourseController()
+        public CourseController(ICourseRepository courseRepository)
         {
-            _courseRepository = new CourseService();
+            this._courseRepository = courseRepository;
         }
         [HttpGet]
         [Route("GetCourse/{id}")]
@@ -34,12 +31,18 @@ namespace BusinessService.Api.Controllers
                 }
                 else
                 {
-                    return NotFound(" Course Not Found");
+                    var Respond = NotFound();
+                    response.StatusCode = Respond.StatusCode;
+                    response.Message = Constants.NotFound;
+                    return NotFound(response);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
 
         }
@@ -51,18 +54,24 @@ namespace BusinessService.Api.Controllers
             {
                 var coursetlist = _courseRepository.GetAll();
 
-                if (coursetlist.Count() > 0)
+                if (coursetlist.Any())
                 {
                     return Ok(coursetlist);
                 }
                 else
                 {
-                    return NotFound(" CourseList Not Found");
+                    var Respond = NotFound();
+                    response.StatusCode = Respond.StatusCode;
+                    response.Message = Constants.NotFound;
+                    return NotFound(response);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
 
         }
@@ -73,11 +82,17 @@ namespace BusinessService.Api.Controllers
             try
             {
                _courseRepository.Add(course);
-                return Ok("Success");
+                var Respond = Ok();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Success;
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
         [HttpPut]
@@ -87,11 +102,17 @@ namespace BusinessService.Api.Controllers
             try
             {
                 _courseRepository.Update(id, course);
-                return Ok("Success");
+                var Respond = Ok();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Success;
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
         [HttpDelete]
@@ -101,11 +122,17 @@ namespace BusinessService.Api.Controllers
             try
             {
                 _courseRepository.Delete(id);
-                return Ok("Success");
+                var Respond = Ok();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Success;
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
 

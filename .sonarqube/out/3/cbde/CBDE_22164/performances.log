@@ -1,0 +1,76 @@
+C:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\ClassController.cs
+GetClass 5
+GetClass -1
+GetAllClass 3
+GetAllClass -1
+AddClass 4
+AddClass -1
+UpdateClass 4
+UpdateClass -1
+DeleteClass 4
+DeleteClass -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\CourseController.cs
+GetCourse 3
+GetCourse -1
+GetAllCourse 3
+GetAllCourse -1
+AddCourse 4
+AddCourse -1
+UpdateCourse 3
+UpdateCourse -1
+DeleteCourse 3
+DeleteCourse -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\SchoolController.cs
+GetSchool 3
+GetSchool -1
+GetAllSchool 3
+GetAllSchool -1
+Post 4
+Post -1
+UpdateSchool 4
+UpdateSchool -1
+DeleteSchool 3
+DeleteSchool -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\StudentController.cs
+SendMessage 4
+SendMessage -1
+GetStudentWithAcademicDetails 3
+GetStudentWithAcademicDetails -1
+GetAllStudentPersonalInfo 4
+GetAllStudentPersonalInfo -1
+GetAllStudentsDetails 3
+GetAllStudentsDetails -1
+GetStudentsBySchoolId 3
+GetStudentsBySchoolId -1
+AddStudent 3
+AddStudent -1
+UpdateStudent 3
+UpdateStudent -1
+DeleteStudent 3
+DeleteStudent -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\Program.cs
+Main 5
+Main -1
+CreateHostBuilder 3
+CreateHostBuilder -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\ServiceBusSender.cs
+SendMessage 3
+SendMessage -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\Startup.cs
+ConfigureServices 3
+ConfigureServices -1
+Configure 3
+Configure -1
+
+C:\Users\cognizantdotnet17\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.MvcApplicationPartsAssemblyInfo.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.AssemblyInfo.cs
+

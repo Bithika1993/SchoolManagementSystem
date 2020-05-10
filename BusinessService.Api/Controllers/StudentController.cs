@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using BusinessService.Domain;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
 using BusinessService.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Distributed;
 
 namespace BusinessService.Api.Controllers
 {
@@ -16,10 +14,20 @@ namespace BusinessService.Api.Controllers
     [Route("api/[controller]")]
     public class StudentController : ControllerBase
     {
+        private readonly HttpResponses response = new HttpResponses();
+        private readonly ServiceBusSender _serviceBusSender = new ServiceBusSender();
         private readonly IStudentRepository _studentRepository;
-        public StudentController()
+        public StudentController(IDistributedCache cache)
         {
-            _studentRepository = new StudentService();
+            _studentRepository = new StudentService(cache);
+        }
+        
+        [HttpGet]
+        [Route("SendMessage")]
+        public async Task<IActionResult> SendMessage()
+        {
+            await _serviceBusSender.SendMessage();
+            return Ok();
         }
         [HttpGet]
         [Route("GetStudentWithAcademicDetails/{id}")]
@@ -35,12 +43,18 @@ namespace BusinessService.Api.Controllers
                 }
                 else
                 {
-                    return NotFound(" Student Not Found");
+                    var Respond = NotFound();
+                    response.StatusCode = Respond.StatusCode;
+                    response.Message = Constants.NotFound;
+                    return NotFound(response);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
 
         }
@@ -52,18 +66,24 @@ namespace BusinessService.Api.Controllers
             {
                 var studentlist = _studentRepository.GetAll();
 
-                if (studentlist.Count() > 0)
+                if (studentlist.Any())
                 {
                     return Ok(studentlist);
                 }
                 else
                 {
-                    return NotFound(" StudentList Not Found");
+                    var Respond = NotFound();
+                    response.StatusCode = Respond.StatusCode;
+                    response.Message = Constants.NotFound;
+                    return NotFound(response);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
         [HttpGet]
@@ -74,18 +94,24 @@ namespace BusinessService.Api.Controllers
             {
                 var studentlist = _studentRepository.GetAllStudentsDetails();
 
-                if (studentlist.Count() > 0)
+                if (studentlist.Any())
                 {
                     return Ok(studentlist);
                 }
                 else
                 {
-                    return NotFound(" StudentList Not Found");
+                    var Respond = NotFound();
+                    response.StatusCode = Respond.StatusCode;
+                    response.Message = Constants.NotFound;
+                    return NotFound(response);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
         [HttpGet]
@@ -96,60 +122,85 @@ namespace BusinessService.Api.Controllers
             {
                 var studentlist = _studentRepository.GetStudentsBySchoolId(id);
 
-                if (studentlist.Count() > 0)
+                if (studentlist.Any())
                 {
                     return Ok(studentlist);
                 }
                 else
                 {
-                    return NotFound(" StudentList Not Found");
+                    var Respond = NotFound();
+                    response.StatusCode = Respond.StatusCode;
+                    response.Message = Constants.NotFound;
+                    return NotFound(response);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
         [HttpPost]
         [Route("addStudent")]
         public IActionResult AddStudent([FromBody]Student student)
         {
+            
             try
             {
                _studentRepository.Add(student);
-                return Ok("Success");
+                var Respond = Ok();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Success;
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
         [HttpPut]
         [Route("updateStudent/{id}")]
         public IActionResult UpdateStudent(int id, [FromBody]Student student)
-        {          
+        {
             try
             {
                _studentRepository.Update(id, student);
-               return Ok("Success");
+                var Respond = Ok();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Success;
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
-        } 
+        }
         [HttpDelete]
         [Route("deleteStudent/{id}")]
         public IActionResult DeleteStudent(int id)
-        {           
+        {
             try
             {
                _studentRepository.Delete(id);
-                return Ok("Success");
+                var Respond = Ok();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Success;
+                return Ok(response);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                response.StatusCode = Respond.StatusCode;
+                response.Message = Constants.Failure;
+                return BadRequest(response);
             }
         }
 

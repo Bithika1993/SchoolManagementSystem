@@ -1,99 +1,69 @@
 ﻿using BusinessService.Data.Repositories;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
+using Microsoft.Extensions.Caching.Distributed;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Text.Json;
 
 namespace BusinessService.Services
 {
     public class StudentService : IStudentRepository
     {       
-        SqlStudentRepository sqlStudentRepository = new SqlStudentRepository();
+        private readonly StudentRepository sqlStudentRepository = new StudentRepository();
+        private readonly IDistributedCache _cache;
+        public StudentService(IDistributedCache cache)
+        {
+            _cache = cache;
+        }
         public void Add(Student entities)
         {
-            try
-            {
                 sqlStudentRepository.Add(entities);
-            }
-            catch(Exception ex)
-            {
-            }
         }
-
-        public void Delete(int id)
+       
+        public void Delete(int Id)
         {
-            try
-            {
-                sqlStudentRepository.Delete(id);
-            }
-            catch(Exception ex)
-            {
-            }
+                sqlStudentRepository.Delete(Id);
         }
 
         public IEnumerable<Student> GetAll()
         {
-            try
-            {
-                var studentlist = sqlStudentRepository.GetAll();
-                return studentlist;
-            }
-            catch
-            {
-                return null;
-            }
+                string Response = _cache.GetString("Student");
+                if (string.IsNullOrEmpty(Response))
+                {
+                    var entitie = sqlStudentRepository.GetAll();
+                    Response = JsonSerializer.Serialize<List<Student>>(entitie.ToList());
+                    var option = new DistributedCacheEntryOptions();
+                    _cache.SetString("Student", Response, option);
+                }
+                JsonSerializerOptions opt = new JsonSerializerOptions();
+                var entities = JsonSerializer.Deserialize<IEnumerable<Student>>(Response, opt);
+                return entities;
         }
 
         public IEnumerable<Student> GetAllStudentsDetails()
         {
-            try
-            {
                 var studentlist = sqlStudentRepository.GetAllStudentsDetails();
                 return studentlist;
-            }
-            catch
-            {
-                return null;
-            }
             
         }
         public IEnumerable<Student> GetStudentsBySchoolId(int id)
         {
-            try
-            {
                 var studentlist = sqlStudentRepository.GetStudentsBySchoolId(id);
                 return studentlist;
-            }
-            catch
-            {
-                return null;
-            }
 
         }
 
         public Student Get(int Id)
         {
-            try
-            {
                 var Students = sqlStudentRepository.GetStudentWithAcademicDetails(Id);
                 return Students;
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
         }
 
         public void Update( int id,Student entities)
         {
-            try
-            {
                 sqlStudentRepository.update(id, entities);
-            }
-            catch(Exception ex)
-            {
-            }
         }
     }
    

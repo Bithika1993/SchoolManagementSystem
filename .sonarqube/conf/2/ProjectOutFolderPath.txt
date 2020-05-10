@@ -1,0 +1,1 @@
+C:\Project\SchoolManagementSystem\.sonarqube\out\2

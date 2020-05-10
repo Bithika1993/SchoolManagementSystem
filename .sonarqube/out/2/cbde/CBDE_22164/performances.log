@@ -1,0 +1,60 @@
+C:\Project\SchoolManagementSystem\BusinessService.Services\ClassService.cs
+Add 5
+Add -1
+Delete 5
+Delete -1
+GetAll 6
+GetAll -1
+Get 3
+Get -1
+Update 4
+Update -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Services\CourseService.cs
+Add 4
+Add -1
+Delete 4
+Delete -1
+GetAll 4
+GetAll -1
+Get 5
+Get -1
+Update 5
+Update -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Services\Program.cs
+Main 4
+Main -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Services\SchoolService.cs
+Add 4
+Add -1
+Delete 4
+Delete -1
+GetAll 4
+GetAll -1
+Get 3
+Get -1
+Update 4
+Update -1
+
+C:\Project\SchoolManagementSystem\BusinessService.Services\StudentService.cs
+Add 8
+Add -1
+Delete 4
+Delete -1
+GetAll 14
+GetAll -1
+GetAllStudentsDetails 5
+GetAllStudentsDetails -1
+GetStudentsBySchoolId 4
+GetStudentsBySchoolId -1
+Get 6
+Get -1
+Update 4
+Update -1
+
+C:\Users\cognizantdotnet17\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.cs
+
+C:\Project\SchoolManagementSystem\BusinessService.Services\obj\Debug\netcoreapp3.1\BusinessService.Services.AssemblyInfo.cs
+

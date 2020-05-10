@@ -1,0 +1,13 @@
+[
+RC:\Project\SchoolManagementSystem\BusinessService.Data\BusinessServiceDbContext.csutf-8e
+\C:\Project\SchoolManagementSystem\BusinessService.Data\Migrations\20200509073342_createBD.csutf-8p
+eC:\Project\SchoolManagementSystem\BusinessService.Data\Migrations\20200509073342_createBD.Designer.csutf-8u
+jC:\Project\SchoolManagementSystem\BusinessService.Data\Migrations\BusinessServiceDbContextModelSnapshot.csutf-8J
+AC:\Project\SchoolManagementSystem\BusinessService.Data\Program.csutf-8_
+VC:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\ClassRepository.csutf-8`
+WC:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\CourseRepository.csutf-8Z
+QC:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\Repository.csutf-8`
+WC:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\SchoolRepository.csutf-8a
+XC:\Project\SchoolManagementSystem\BusinessService.Data\Repositories\StudentRepository.csutf-8g
+\C:\Users\cognizantdotnet17\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8~
+sC:\Project\SchoolManagementSystem\BusinessService.Data\obj\Debug\netcoreapp3.1\BusinessService.Data.AssemblyInfo.csutf-8

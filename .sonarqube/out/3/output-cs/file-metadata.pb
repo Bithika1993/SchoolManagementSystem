@@ -1,0 +1,11 @@
+]
+TC:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\ClassController.csutf-8^
+UC:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\CourseController.csutf-8^
+UC:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\SchoolController.csutf-8_
+VC:\Project\SchoolManagementSystem\BusinessService.Api\Controllers\StudentController.csutf-8I
+@C:\Project\SchoolManagementSystem\BusinessService.Api\Program.csutf-8R
+IC:\Project\SchoolManagementSystem\BusinessService.Api\ServiceBusSender.csutf-8I
+@C:\Project\SchoolManagementSystem\BusinessService.Api\Startup.csutf-8g
+\C:\Users\cognizantdotnet17\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8ê
+ÑC:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.MvcApplicationPartsAssemblyInfo.csutf-8|
+qC:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.AssemblyInfo.csutf-8

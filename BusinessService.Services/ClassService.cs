@@ -3,46 +3,26 @@ using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessService.Services
 {
     public class ClassService : IClassRepository
     {
-        SqlClassRepository sqlClassRepository = new SqlClassRepository();
-        public void Add(Class cls)
+        private readonly  ClassRepository sqlClassRepository = new ClassRepository();
+        public void Add(Class entities)
         {
-            try
-            {
-                sqlClassRepository.Add(cls);
-            }
-            catch(Exception ex)
-            {
-            }
+                sqlClassRepository.Add(entities);
         }
 
         public void Delete(int Id)
         {
-            try
-            {
                 sqlClassRepository.Delete(Id);
-            }
-            catch(Exception ex)
-            {
-            }
         }
 
         public IEnumerable<Class> GetAll()
         {
-            try
-            {
                 var classlist = sqlClassRepository.GetAll();
                 return classlist;
-            }
-            catch(Exception ex)
-            {
-                return null;
-            }
         }
 
         public Class Get(int Id)
@@ -52,21 +32,15 @@ namespace BusinessService.Services
                 var classes = sqlClassRepository.Get(Id);
                 return classes;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return null;
             }
         }
 
-        public void Update(int id, Class cls)
+        public void Update(int id, Class entities)
         {
-            try
-            {
-                sqlClassRepository.update(id, cls);
-            }
-            catch(Exception ex)
-            {
-            }
+                sqlClassRepository.update(id, entities);
         }
     }
 }

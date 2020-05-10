@@ -3,46 +3,26 @@ using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BusinessService.Services
 {
     public class SchoolService : ISchoolRepository
     {
-        SqlSchoolRepository sqlSchoolRepository = new SqlSchoolRepository();
+        private readonly SchoolRepository sqlSchoolRepository = new SchoolRepository();
         public void Add(School entities)
         {
-            try
-            {
                sqlSchoolRepository.Add(entities);
-            }
-            catch(Exception ex)
-            {
-            }
         }
 
         public void Delete(int Id)
         {
-            try
-            {
                 sqlSchoolRepository.Delete(Id);
-            }
-            catch(Exception ex)
-            {
-            }
         }
 
         public IEnumerable<School> GetAll()
         {
-            try
-            {
                 var Schoollist = sqlSchoolRepository.GetAll();
                 return Schoollist;
-            }
-            catch(Exception ex)
-            {
-                return null;
-            }
         }
 
         public School Get(int Id)
@@ -52,7 +32,7 @@ namespace BusinessService.Services
                 var entities = sqlSchoolRepository.Get(Id);
                 return entities;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return null;
             }
@@ -60,13 +40,7 @@ namespace BusinessService.Services
 
         public void Update(int id, School entities)
         {
-            try
-            {
-                sqlSchoolRepository.update(id, entities);
-            }
-            catch(Exception ex)
-            {
-            }
+                sqlSchoolRepository.update(id, entities);           
         }
     }
 }

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
+using BusinessService.Domain;
 using BusinessService.Domain.Model;
 using BusinessService.Domain.Services;
-using BusinessService.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessService.Api.Controllers
@@ -15,10 +11,11 @@ namespace BusinessService.Api.Controllers
     [Route("api/[controller]")]
     public class ClassController : ControllerBase
     {
+        private readonly HttpResponses responses = new HttpResponses();
         private readonly IClassRepository _classRepository;
-        public ClassController()
+        public ClassController(IClassRepository classRepository)
         {
-            _classRepository = new ClassService();
+            this._classRepository = classRepository;
         }
         [HttpGet]
         [Route("GetClass/{id}")]
@@ -34,12 +31,18 @@ namespace BusinessService.Api.Controllers
                 }
                 else
                 {
-                    return NotFound(" Class Not Found");
+                    var Respond = NotFound();
+                    responses.StatusCode = Respond.StatusCode;
+                    responses.Message = Constants.NotFound;
+                    return NotFound(responses);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Failure;
+                return BadRequest(responses);
             }
 
         }
@@ -51,18 +54,24 @@ namespace BusinessService.Api.Controllers
             {
                 var classtlist = _classRepository.GetAll();
 
-                if (classtlist.Count() > 0)
+                if (classtlist.Any())
                 {
                     return Ok(classtlist);
                 }
                 else
                 {
-                    return NotFound(" ClassList Not Found");
+                    var Respond = NotFound();
+                    responses.StatusCode = Respond.StatusCode;
+                    responses.Message = Constants.NotFound;
+                    return NotFound(responses);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Failure;
+                return BadRequest(responses);
             }
 
         }
@@ -73,11 +82,17 @@ namespace BusinessService.Api.Controllers
             try
             {
                 _classRepository.Add(entities);
-                return Ok("Success");
+                var Respond = Ok();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Success;
+                return Ok(responses);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Failure;
+                return BadRequest(responses);
             }
         }
         [HttpPut]
@@ -87,11 +102,17 @@ namespace BusinessService.Api.Controllers
             try
             { 
                 _classRepository.Update(id, entities);
-                return Ok("Success");
+                var Respond = Ok();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Success;
+                return Ok(responses);
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Failure;
+                return BadRequest(responses);
             }
         }
         [HttpDelete]
@@ -101,11 +122,17 @@ namespace BusinessService.Api.Controllers
             try
             {
                _classRepository.Delete(id);
-               return Ok("Success");
+                var Respond = Ok();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Success;
+                return Ok(responses);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return BadRequest(ex.Message);
+                var Respond = BadRequest();
+                responses.StatusCode = Respond.StatusCode;
+                responses.Message = Constants.Failure;
+                return BadRequest(responses);
             }
         }
     }

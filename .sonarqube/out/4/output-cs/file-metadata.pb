@@ -1,0 +1,10 @@
+P
+GC:\Project\SchoolManagementSystem\BusinessService.Tests\ClassService.csutf-8M
+DC:\Project\SchoolManagementSystem\BusinessService.Tests\ClassTest.csutf-8Q
+HC:\Project\SchoolManagementSystem\BusinessService.Tests\CourseService.csutf-8N
+EC:\Project\SchoolManagementSystem\BusinessService.Tests\CourseTest.csutf-8K
+BC:\Project\SchoolManagementSystem\BusinessService.Tests\Program.csutf-8Q
+HC:\Project\SchoolManagementSystem\BusinessService.Tests\SchoolService.csutf-8N
+EC:\Project\SchoolManagementSystem\BusinessService.Tests\SchoolTest.csutf-8g
+\C:\Users\cognizantdotnet17\AppData\Local\Temp\.NETCoreApp,Version=v3.1.AssemblyAttributes.csutf-8€
+uC:\Project\SchoolManagementSystem\BusinessService.Tests\obj\Debug\netcoreapp3.1\BusinessService.Tests.AssemblyInfo.csutf-8
