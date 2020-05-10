@@ -410,9 +410,6 @@ C:\Project\SchoolManagementSystem\BusinessService.Api\bin\Debug\netcoreapp3.1\Bu
 C:\Project\SchoolManagementSystem\BusinessService.Api\bin\Debug\netcoreapp3.1\BusinessService.Domain.pdb
 C:\Project\SchoolManagementSystem\BusinessService.Api\bin\Debug\netcoreapp3.1\BusinessService.Services.pdb
 C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.csprojAssemblyReference.cache
-C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.csproj.CoreCompileInputs.cache
-C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.MvcApplicationPartsAssemblyInfo.cs
-C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.MvcApplicationPartsAssemblyInfo.cache
 C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.AssemblyInfoInputs.cache
 C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.AssemblyInfo.cs
 C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.RazorTargetAssemblyInfo.cache
@@ -422,3 +419,7 @@ C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\st
 C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.dll
 C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.pdb
 C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.genruntimeconfig.cache
+C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.csproj.CoreCompileInputs.cache
+C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Project\SchoolManagementSystem\BusinessService.Api\obj\Debug\netcoreapp3.1\BusinessService.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Project\SchoolManagementSystem\BusinessService.Api\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Versioning.dll

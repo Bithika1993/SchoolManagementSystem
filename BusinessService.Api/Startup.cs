@@ -2,6 +2,7 @@ using BusinessService.Domain.Services;
 using BusinessService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,6 +31,12 @@ namespace BusinessService.Api
             {
                 options.Configuration = Configuration.GetConnectionString("RedisConnection");
                 options.InstanceName = "Student-Temp";
+            });
+            services.AddApiVersioning(x =>
+            {
+                x.DefaultApiVersion = new ApiVersion(1, 0);
+                x.AssumeDefaultVersionWhenUnspecified = true;
+                x.ReportApiVersions = true;
             });
         }
 

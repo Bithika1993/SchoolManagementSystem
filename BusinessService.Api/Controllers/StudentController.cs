@@ -11,6 +11,7 @@ using Microsoft.Extensions.Caching.Distributed;
 namespace BusinessService.Api.Controllers
 {
     [ApiController]
+    [ApiVersion("1.0")]
     [Route("api/[controller]")]
     public class StudentController : ControllerBase
     {

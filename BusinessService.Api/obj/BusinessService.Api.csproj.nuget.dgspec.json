@@ -52,6 +52,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Versioning": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
             "Microsoft.Azure.ServiceBus": {
               "target": "Package",
               "version": "[4.1.3, )"
